@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import type { ITask } from "./interfaces";
 import { TodoTask } from "./components/TodoTask";
+import { EmptyMessage } from "./components/EmptyMessage";
 
 const App = () => {
   const [task, setTask] = useState<string>("");
@@ -58,12 +59,7 @@ const App = () => {
   let content;
 
   if (todoList.length === 0) {
-    content = (
-      <div className="empty-message">
-        <h2>Great job!</h2>
-        <p>You’ve completed all your tasks for today.</p>
-      </div>
-    );
+    content = <EmptyMessage/>;
   } else {
     content = todoList.map((task: ITask, key: number) => (
       <TodoTask
@@ -104,3 +100,4 @@ const App = () => {
 };
 
 export default App;
+//106
