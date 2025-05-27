@@ -3,6 +3,7 @@ import { useState } from "react";
 import type { ITask } from "./interfaces";
 import { TodoTask } from "./components/TodoTask";
 import { EmptyMessage } from "./components/EmptyMessage";
+import { TaskInput } from "./components/TaskInput"
 
 const App = () => {
   const [task, setTask] = useState<string>("");
@@ -75,29 +76,15 @@ const App = () => {
   return (
     <div className="App">
       <h1>Zevi's To Do List</h1>
-      <div className="header">
-        <div className="input-container">
-          <input
-            type="text"
-            placeholder="Task..."
-            name="task"
-            value={task}
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            placeholder="Deadline (in Days)..."
-            name="deadline"
-            value={deadline}
-            onChange={handleChange}
-          />
-        </div>
-        <button onClick={addTask}>Add Task</button>
-      </div>
+      <TaskInput
+        task={task}
+        deadline={deadline}
+        onChange={handleChange}
+        onAdd={addTask}
+      />
       <div className="todoList">{content}</div>
     </div>
   );
 };
 
 export default App;
-//106

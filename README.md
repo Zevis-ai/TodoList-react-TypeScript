@@ -39,12 +39,12 @@ It was built as a learning experience to dive into TypeScript with React and to 
 
 ```
 my-project/
-├── public/
-│   ├── image1.png
-│   └── image2.jpg
+│
 ├── src/
 │   ├── components/
-│   │   └── TodoTask.tsx
+│   │   ├── TodoTask.tsx
+│   │   ├── TaskInput.tsx
+│   │   └── EmptyMessage.tsx
 │   ├── interfaces.ts
 │   ├── App.tsx
 │   └── App.css
