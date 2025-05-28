@@ -11,6 +11,9 @@ export interface TaskInputProps {
   onAdd: () => void;
   taskArrIsEmpty: boolean;
   removeAll: () => void;
+  doneAll: () => void;
+  markAllAsNotDone: () => void;
+  allAsDone: boolean;
 };
 
 export interface TodoTaskProps {

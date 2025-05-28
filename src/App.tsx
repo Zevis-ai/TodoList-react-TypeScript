@@ -10,6 +10,8 @@ const App = () => {
   const [deadline, setDeadline] = useState<number>(0);
   const [todoList, setTodoList] = useState<ITask[]>([]);
 
+  const allAsDone = todoList.length > 0 && todoList.every((task) => task.isDone);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (event.target.name === "task") {
       setTask(event.target.value);
@@ -63,12 +65,30 @@ const App = () => {
     }
   };
 
+  const doneAll = () => {
+    setTodoList((prev) =>
+      prev.map((task) => ({
+        ...task,
+        isDone: true
+      }))
+    );
+  };
+
+  const markAllAsNotDone = () =>{
+    setTodoList((prev) =>
+      prev.map((task) => ({
+        ...task,
+        isDone: false
+      }))
+    );
+  }
+
   let taskArrIsEmpty = todoList.length === 0;
   let content;
 
 
   if (todoList.length === 0) {
-    content = <EmptyMessage/>;
+    content = <EmptyMessage />;
   } else {
     content = todoList.map((task: ITask, key: number) => (
       <TodoTask
@@ -83,7 +103,7 @@ const App = () => {
 
   return (
     <div className="App">
-        <h1>Zevi's To Do List</h1>
+      <h1>Zevi's To Do List</h1>
       <TaskInput
         task={task}
         deadline={deadline}
@@ -91,6 +111,9 @@ const App = () => {
         onAdd={addTask}
         taskArrIsEmpty={taskArrIsEmpty}
         removeAll={removeAll}
+        doneAll={doneAll}
+        markAllAsNotDone={markAllAsNotDone}
+        allAsDone={allAsDone}
       />
       <div className="todoList">{content}</div>
     </div>
