@@ -179,3 +179,20 @@ body{
   opacity: 0.6;
   transition: all 0.3s ease;
 }
+
+
+.remove-all-btn {
+  margin-right: 24px;      /* מזיז ימינה */
+  border: 1.5px solid #e53935; /* מסגרת אדומה */
+  background: #fff;
+  color: #e53935;
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(229,57,53,0.08);
+}
+.remove-all-btn:hover {
+  background: #ffeaea;
+}

@@ -3,10 +3,17 @@ type TaskInputProps = {
   deadline: number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onAdd: () => void;
+  taskArrIsEmpty: boolean;
+  removeAll: () => void;
 };
 
-export const TaskInput = ({ task, deadline, onChange, onAdd }: TaskInputProps) => (
+export const TaskInput = ({ task, deadline, onChange, onAdd, taskArrIsEmpty, removeAll }: TaskInputProps) => (
   <div className="header">
+    {!taskArrIsEmpty && (
+      <button className="remove-all-btn" onClick={removeAll}>
+        Remove All Tasks
+      </button>
+    )}
     <div className="input-container">
       <input
         type="text"

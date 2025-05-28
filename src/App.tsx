@@ -57,7 +57,15 @@ const App = () => {
     );
   };
 
+  const removeAll = () => {
+    if (window.confirm("Are you sure you want to remove all tasks?")) {
+      setTodoList([]);
+    }
+  };
+
+  let taskArrIsEmpty = todoList.length === 0;
   let content;
+
 
   if (todoList.length === 0) {
     content = <EmptyMessage/>;
@@ -75,12 +83,14 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Zevi's To Do List</h1>
+        <h1>Zevi's To Do List</h1>
       <TaskInput
         task={task}
         deadline={deadline}
         onChange={handleChange}
         onAdd={addTask}
+        taskArrIsEmpty={taskArrIsEmpty}
+        removeAll={removeAll}
       />
       <div className="todoList">{content}</div>
     </div>
