@@ -1,12 +1,5 @@
 import { useState } from "react";
-import type { ITask } from "../interfaces";
-
-interface TodoTaskProps {
-  task: ITask;
-  completeTask(taskNameToDelete: string): void;
-  editTask(taskNameToEdit: string, newTaskName: string): void;
-  toggleDone(taskName: string): void;
-}
+import type { TodoTaskProps } from "../interfaces";
 
 export const TodoTask = ({
   task,

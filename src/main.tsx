@@ -6,7 +6,7 @@ import { StagewiseDevToolbar } from './stagewise-toolbar'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
 
 if (process.env.NODE_ENV === 'development') {

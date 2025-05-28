@@ -1,11 +1,4 @@
-type TaskInputProps = {
-  task: string;
-  deadline: number;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onAdd: () => void;
-  taskArrIsEmpty: boolean;
-  removeAll: () => void;
-};
+import type { TaskInputProps } from "../interfaces";
 
 export const TaskInput = ({ task, deadline, onChange, onAdd, taskArrIsEmpty, removeAll }: TaskInputProps) => (
   <div className="header">
