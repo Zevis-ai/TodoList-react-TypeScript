@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { ITask } from "./interfaces";
 import { TodoTask } from "./components/TodoTask";
 import { EmptyMessage } from "./components/EmptyMessage";
@@ -9,6 +9,25 @@ const App = () => {
   const [task, setTask] = useState<string>("");
   const [deadline, setDeadline] = useState<number>(0);
   const [todoList, setTodoList] = useState<ITask[]>([]);
+
+  useEffect(() => {
+    try {
+      const storedTodoList = localStorage.getItem("todoList");
+      if (storedTodoList) {
+        setTodoList(JSON.parse(storedTodoList));
+      }
+    } catch (error) {
+      console.error("Failed to load todo list from local storage:", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("todoList", JSON.stringify(todoList));
+    } catch (error) {
+      console.error("Failed to save todo list to local storage:", error);
+    }
+  }, [todoList]);
 
   const allAsDone = todoList.length > 0 && todoList.every((task) => task.isDone);
 
